@@ -1,0 +1,15 @@
+            long n = in.nextLong();
+            long f1=2;
+            long f2=0;
+            long f=0;
+            long sum=0;
+
+            while(f1<n)
+            {
+                sum+=f1;
+                f=(4*f1)+f2;
+                f2=f1;
+                f1=f;
+                
+            }
+            System.out.println(sum);
