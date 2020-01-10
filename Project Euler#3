@@ -1,0 +1,47 @@
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+       
+            long n = in.nextLong();
+            int res=0;
+            while(n%2==0)
+          {
+              if(check(n/2)){
+                  System.out.println(n/2);
+                  res=1;
+              }
+              
+              n=n/2;
+
+          }
+              long i=3;
+              long max=0;
+              while(i<=n)
+              {
+                  if(n%i==0&&check(i)){
+                     max=Math.max(i,max);
+
+                  }
+                  
+                  i+=2;
+              }
+              if(res==0)
+              System.out.println(max);
+
+          }
+    
+
+    
+    static boolean check(long n)
+    {
+    
+        for(int i=2;i<=Math.sqrt(n);i++)
+        {
+            if(n%i==0)
+            return false;
+            
+        }
+        return true;
+    }}
