@@ -1,0 +1,11 @@
+            int c=1;
+            int i=2;
+            while(c<=10001)
+            {
+                if(isPrime(i))
+                c++;
+
+                i++;
+
+            }
+            System.out.println(i-1);
