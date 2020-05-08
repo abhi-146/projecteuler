@@ -1,0 +1,31 @@
+public class Main {
+	public static void main(String args[])
+	{
+		var gridSize = 20;
+		var grid = new long[gridSize + 1][gridSize + 1];
+		
+		for(var i =0;i<= gridSize ;i++)
+		{
+			for(var j=0;j<= gridSize;j++)
+			{
+				grid[i][0] = 1;
+				grid[0][j] = 1;
+			}
+		}
+		
+		for(var i =1;i<= gridSize ;i++)
+		{
+			for(var j=1;j<= gridSize;j++)
+			{
+				grid[i][j] = grid[i-1][j] + grid[i][j-1];
+				
+			}
+		}
+		System.out.println(grid[gridSize][gridSize]);
+					
+	}
+}
+
+	
+//Its also equal to (40)C(20).
+//The 21st element of 41st row in pascal's triangle.
