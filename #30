@@ -1,0 +1,30 @@
+import java.util.*;
+public class Main {
+	public static void main(String args[])
+	{
+		var sum =0L;
+		for(int i =2;i<=355000;i++)
+		{
+			if(i == pow(i))
+				sum +=i;
+		}
+		System.out.println(sum);
+	}
+
+	private static int pow(int n) {
+		int rem =0;
+		int sum = 0;
+		while(n > 0)
+		{
+			rem = n % 10;
+			sum += Math.pow(rem, 5);
+			n = n/10;
+		}
+		return sum;
+	}
+}
+
+	
+
+
+  
