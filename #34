@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main {
+	public static void main(String args[])
+	{
+		   var sum = 0;
+		    for (var i = 10; i <= 2540160; i++) {
+		        if (i == factorialSum(i)) {
+		            sum+= i;
+		        }
+		    }
+		    System.out.println(sum);
+	}
+
+	private static int factorialSum(int n) {
+		 var factorials = new int[]{1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
+	    var sum = 0;
+	    while (n > 0) {
+	        sum+= factorials[n % 10];
+	        n = n / 10;
+	    }
+	    return sum;
+	}
+}
+
+	
+
+
+  
