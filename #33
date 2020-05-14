@@ -1,0 +1,33 @@
+import java.util.*;
+public class Main {
+	public static void main(String args[])
+	{
+		var den = 1;
+		var num = 1;
+		for(var i = 1;i<10;i++)
+		{
+			for(var d = 1;d<i;d++)
+			{
+				for(var n = 1;n<d;n++)
+				{
+					if((n*10 + i)*d == n*(i*10+d))
+					{
+						den *=d;
+						num *=n;
+					}
+				}
+			}
+			
+		}
+		System.out.println(den/GCD(num,den));
+	}
+
+	private static int GCD(int num, int den) {
+		if(den == 0)
+			return num;
+		else
+		return GCD(num,num%den);
+	}
+}
+
+	
