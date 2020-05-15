@@ -1,0 +1,76 @@
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.TreeSet;
+
+public class Main {
+	
+	
+	public static int checkCircularPrimes(int prime ,TreeSet<Integer> primes )
+	{
+		var multiplier = 1;
+		var num = prime;
+		var count = 0;
+		var d = 0;
+		
+		while(num > 0) {
+			d = num % 10;
+			if((d & 1) == 0 || d == 5)
+			{
+				primes.remove(prime);
+				return 0;
+			}
+			num /= 10;
+			multiplier *=10;
+			count++;
+		}
+		multiplier /= 10;
+		
+		num = prime;
+		var found = new ArrayList<Integer>();
+		
+		for(var i =0;i<count;i++)
+		{
+			if(primes.contains(num))
+			{
+				found.add(num);
+				primes.remove(num);
+			}
+			else if(!found.contains(num))
+			{
+				return 0;
+			}
+			d = num % 10;
+			num = d * multiplier + num/10;
+		}
+		return found.size();
+		
+		
+	}
+	public static void main(String args[])
+	{
+		
+		TreeSet<Integer> primes = new TreeSet<Integer>();
+		for(int i = 2;i<1000000;i++)
+		{
+			if((new BigInteger(String.valueOf(i)).isProbablePrime(1)))
+					{
+				        primes.add(i);
+					}
+		}
+		var circularPrimes = 2;
+		primes.remove(2);
+		primes.remove(5);
+		
+		while( primes.size() > 0)
+		{
+			circularPrimes += checkCircularPrimes(primes.first(),primes);
+			
+		}
+		System.out.println(circularPrimes);
+	}
+}
+
+	
+
+
+  
