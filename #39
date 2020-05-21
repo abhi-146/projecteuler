@@ -1,0 +1,25 @@
+public class euler {
+	public static void main(String args[])
+	{
+		long numSolution = 0;
+		long max = 0;
+		int index =0;
+		for(int p = 3;p<=1000;p++)
+		{
+			numSolution=0;
+			for(int a=0;a<p/3;a++)
+			{
+				if(p*(p-2*a) % (2*(p-a)) == 0)
+					numSolution++;
+			}
+			
+			if(numSolution > max)
+				{
+				max = numSolution;
+				index = p;
+				}
+		}
+		System.out.println(index);
+	}
+
+}
