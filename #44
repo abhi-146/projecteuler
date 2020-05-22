@@ -1,0 +1,32 @@
+public class euler {
+	public static void main(String args[])
+	{
+		var result = 0;
+		var notFound = true;
+		var i = 1;
+		
+		while(notFound)
+		{
+			i++;
+			var n = i*(3*i - 1)/2;
+			
+			for(var j = i-1;j>0;j--)
+			{
+				var m = j*(3*j - 1)/2;
+				if(isPentagonal(n - m) && isPentagonal(n + m))
+				{
+					result = n-m;
+					notFound = false;
+					break;
+				}
+			}
+		}
+	  System.out.println(result);
+	}
+
+	private static boolean isPentagonal(int i) {
+       
+		return ((1 + Math.sqrt(1 + 24 * i))%6 == 0);
+	}
+
+}
