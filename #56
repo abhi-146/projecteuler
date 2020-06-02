@@ -1,0 +1,34 @@
+package practice;
+import java.math.BigInteger;
+
+public class euler {
+	public static void main(String args[])
+	{
+		long max = 0;
+		
+		for(int i=99;i>0;i--)
+		{
+			for(int j=99;j>0;j--)
+			{
+				BigInteger a = new BigInteger(Integer.toString(i));
+				BigInteger n = a.pow(j);
+				long digitSum = sum(n);
+				if(digitSum > max)
+					max = digitSum;
+				
+			}
+		}
+		System.out.print(max);
+	}
+
+	private static long sum(BigInteger n) {
+		char []arr = n.toString().toCharArray();
+		long sum=0;
+		for(char ch:arr)
+		{
+			sum+=ch-'0';
+		}
+		return sum;
+	}
+
+}
